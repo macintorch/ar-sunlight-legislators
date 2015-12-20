@@ -6,7 +6,14 @@ class SunlightLegislatorsImporter
     csv.each do |row|
       row.each do |field, value|
         # TODO: begin
-        raise NotImplementedError, "TODO: figure out what to do with this row and do it!"
+        #raise NotImplementedError, "TODO: figure out what to do with this row and do it!"
+        if field == 'title'
+          if value == 'Rep'
+            Representative.create!(row.to_hash)
+          else
+            Senator.create!(row.to_hash)
+          end
+        end
         # TODO: end
       end
     end
